@@ -2,7 +2,8 @@ const Todo = require('../models/todo.model.js')
 
 exports.create = (req, res) => {
   const todo = new Todo({
-    content: req.body.content,
+    title: req.body.title,
+    description: req.body.description,
     subtask: req.body.subtask
   });
   todo.save().then((data)=> {
@@ -14,7 +15,8 @@ exports.create = (req, res) => {
 
 exports.update = (req, res) => {
   Todo.findByIdAndUpdate(req.params.todoId, {
-    content: req.body.content,
+    title: req.body.title,
+    description: req.body.description,
     subtask: req.body.subtask
   }, {new: true}).then((todo)=>{
     if(!todo) {
