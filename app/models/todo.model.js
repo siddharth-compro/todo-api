@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const TodoSchema = mongoose.Schema({
     title: String,
     description: String,
-    completed: { Boolean, default: false },
+    completed: { type: Boolean, default: false },
     archived: { type: Boolean, default: false },
     subtask: [{
       title: String,
