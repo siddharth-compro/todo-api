@@ -4,6 +4,7 @@ exports.create = (req, res) => {
   const todo = new Todo({
     title: req.body.title,
     description: req.body.description,
+    completed: req.body.completed,
     subtask: req.body.subtask
   });
   todo.save().then((data)=> {
@@ -17,6 +18,7 @@ exports.update = (req, res) => {
   Todo.findByIdAndUpdate(req.params.todoId, {
     title: req.body.title,
     description: req.body.description,
+    completed: req.body.completed,
     subtask: req.body.subtask
   }, {new: true}).then((todo)=>{
     if(!todo) {
