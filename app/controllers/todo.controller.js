@@ -74,9 +74,9 @@ var pageNo = parseInt(req.query.pageNo)
         response = {"error" : true,"message" : "invalid page number, should start with 1"};
         return res.json(response)
   }
-  query.skip = size * (pageNo - 1)
-  query.limit = size
   query.sort = {createdAt: 'desc'}
+  query.skip = size * (pageNo -1)
+  query.limit = size
   // Find some documents
        Todo.find({},{},query,function(err,data) {
         // Mongo command to fetch all data from collection.
