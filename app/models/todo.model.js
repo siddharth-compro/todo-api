@@ -11,6 +11,10 @@ const TodoSchema = mongoose.Schema({
       completed: { type: Boolean, default: false },
       archived: { type: Boolean, default: false }
     }]
-});
+  },
+  {
+    timestamps: true
+  }
+);
 
 module.exports = mongoose.model('Todo', TodoSchema);

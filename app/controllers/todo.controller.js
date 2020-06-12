@@ -76,6 +76,7 @@ var pageNo = parseInt(req.query.pageNo)
   }
   query.skip = size * (pageNo - 1)
   query.limit = size
+  query.sort = {createdAt: 'desc'}
   // Find some documents
        Todo.find({},{},query,function(err,data) {
         // Mongo command to fetch all data from collection.
